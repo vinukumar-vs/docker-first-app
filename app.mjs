@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 app.get('/', (req, res) => {
-  res.send(`<html><body><h2>Good to see you ${customMessage}. Welcome to the new world!</h2>
+  res.send(`<html><body><h2>Good to see you ${customMessage}. Welcome to the Docker world!</h2>
           <form action="/custom-message" method="POST">
             <div class="form-control">
               <label>Name</label>
@@ -29,7 +29,7 @@ await connectToDatabase();
 
 app.post("/custom-message", (req, res) => {
   let custMsg = req.body.name
-  console.log("custMsg: ", custMsg);
+  console.log("You entered: ", custMsg);
   customMessage = custMsg;
   res.redirect("/");
 });
